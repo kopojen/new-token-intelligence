@@ -1,0 +1,6 @@
+product,category,public_positioning,pricing_reference,pricing_note,relevance_to_project
+CoinMarketCap,market data portal,prices watchlists alerts,free tier plus paid API tiers,verify current paid API pricing before final submission,shows users already consume crypto data products
+CoinGecko,market data portal,prices categories market API,free tier plus paid API tiers,verify current API pricing before final submission,analogous data monetization through API access
+TradingView,charting and alerts,charts screeners alerts,freemium plus paid subscriptions,verify current subscription pricing before final submission,benchmark for retail willingness to pay for market tools
+CryptoPanic,news aggregator and alerts,crypto news alerts portfolio signals,freemium plus paid/pro tiers,verify current pricing before final submission,closest analogue for news and alert aggregation
+Nansen,on-chain intelligence,crypto analytics dashboards,paid analytics subscriptions,verify current pricing before final submission,upper-end benchmark for crypto intelligence products

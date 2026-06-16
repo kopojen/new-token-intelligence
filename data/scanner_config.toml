@@ -1,0 +1,55 @@
+[universe]
+min_quote_volume_24h = 5000000.0
+max_quote_volume_24h = 250000000.0
+max_spread_pct = 0.35
+critical_depth_usd_1pct_per_side = 3000.0
+min_depth_usd_1pct_per_side = 30000.0
+min_trade_count_5m = 120
+quote_asset_suffixes = ["USDT"]
+excluded_base_assets = ["BTC", "ETH", "XRP", "BNB", "SOL", "ADA", "AVAX", "BCH", "DOT", "LINK", "LTC", "NEAR", "POL", "SHIB", "SUI", "TON", "TRX", "DOGE", "FIGR_HELOC"]
+
+[weights]
+catalyst_max = 20.0
+momentum_max = 20.0
+volume_max = 20.0
+liquidity_max = 15.0
+structure_max = 15.0
+social_max = 10.0
+supply_penalty_min = -10.0
+market_penalty_min = -20.0
+
+[thresholds]
+min_ret_15m = 1.0
+min_ret_1h = 3.0
+max_distance_from_24h_high_pct = 2.5
+min_volume_multiple_5m = 2.0
+min_volume_multiple_15m = 1.8
+min_trade_count_multiple_5m = 1.5
+no_chase_ret_1h_pct = 24.0
+min_catalyst_score_watch = 8.0
+min_catalyst_score_review = 10.0
+min_catalyst_score_ready = 10.0
+min_catalyst_score_momentum_ready = 10.0
+min_review_score = 34.0
+min_momentum_ready_score = 42.0
+min_volume_multiple_ready = 2.2
+min_volume_multiple_momentum_ready = 1.8
+max_spread_pct_ready = 0.30
+max_spread_pct_momentum_ready = 0.25
+min_depth_usd_ready = 60000.0
+min_depth_usd_momentum_ready = 15000.0
+max_distance_from_30m_high_momentum_pct = 1.5
+watchlist_score = 52.0
+tradable_score = 60.0
+
+[runtime]
+shortlist_limit = 25
+rolling_window_batch_size = 100
+depth_limit = 100
+live_top_n_by_quote_volume = 50
+live_top_n_by_24h_gainers = 20
+
+[dashboard]
+state_path = "data/runtime/state.json"
+host = "127.0.0.1"
+port = 8787

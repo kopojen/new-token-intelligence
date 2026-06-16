@@ -1,0 +1,24 @@
+{
+  "events": [
+    {
+      "symbol": "MEME",
+      "source": "binance-public-ticker",
+      "signal_type": "volume-and-price-watch",
+      "event_score": 6.0,
+      "narrative_score": 6.0,
+      "tradable_on_binance": true,
+      "tags": ["binance-spot", "meme-sector", "high-beta"],
+      "summary": "MEMEUSDT shows elevated 24h movement and intraday volume expansion in the demo snapshot."
+    },
+    {
+      "symbol": "PEPE",
+      "source": "binance-public-ticker",
+      "signal_type": "liquidity-watch",
+      "event_score": 4.0,
+      "narrative_score": 7.0,
+      "tradable_on_binance": true,
+      "tags": ["binance-spot", "meme-sector", "large-retail-attention"],
+      "summary": "PEPEUSDT remains liquid but needs spread and short-term momentum checks before interpretation."
+    }
+  ]
+}

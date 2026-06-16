@@ -1,0 +1,5 @@
+flowchart LR
+  A["Sources<br/>Announcements<br/>Market data<br/>Event feed"] --> B["Ingestion<br/>Fetch data<br/>Map symbols"]
+  B --> C["Processing<br/>Small-cap filter<br/>Market features"]
+  C --> D["Product rows<br/>Movers<br/>Liquidity<br/>Market notes"]
+  D --> E["Delivery<br/>Dashboard<br/>CSV/API"]

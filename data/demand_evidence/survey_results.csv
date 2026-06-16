@@ -1,0 +1,6 @@
+response_id,response_source,trades_crypto,last_3_months,monitors_new_tokens,sources_checked,time_spent_minutes_per_day,main_pain_point,usefulness_rating_1_5,acceptable_monthly_price_usd,preferred_delivery,trust_requirement,adoption_blocker
+P01,planning_placeholder,yes,yes,yes,"Binance;CoinGecko;Telegram",30,"too many sources to check",4,10,"dashboard;alert","transparent reasons and liquidity and volume context","false positives"
+P02,planning_placeholder,yes,yes,yes,"OKX;KuCoin;TradingView",45,"late to exchange announcements",5,19,"alert;dashboard","source links and liquidity checks","does not trust black-box scores"
+P03,planning_placeholder,yes,yes,no,"CoinGecko;TradingView",10,"manual checks are annoying but not critical",3,5,"daily email","simple explanation of market data and liquidity and volume context","not active enough to pay"
+P04,planning_placeholder,yes,yes,yes,"Binance;X;Telegram",60,"hard to filter noise from real volume",5,19,"dashboard;Telegram alert","volume and spread evidence","too many existing tools"
+P05,planning_placeholder,no,no,no,"none",0,"not a crypto trader",1,0,"none","not applicable","not target customer"

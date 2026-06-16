@@ -1,0 +1,14 @@
+__pycache__/
+.pytest_cache/
+.venv/
+.env
+.env.*
+!.env.example
+.vercel
+.DS_Store
+*.pyc
+data/runtime/
+data/paper_trades/
+data/trade_journal/
+data/demand_evidence/announcement_evidence.csv
+report/*.pdf
