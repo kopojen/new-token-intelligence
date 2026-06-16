@@ -74,11 +74,7 @@ Start the local dashboard:
 PYTHONPATH=src python3 -m new_coins_scanner.cli dashboard
 ```
 
-Then open:
-
-```text
-http://127.0.0.1:8787/
-```
+Then open the dashboard URL printed by the command.
 
 CLI sample run:
 

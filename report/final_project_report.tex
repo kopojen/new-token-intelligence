@@ -25,7 +25,7 @@
 \newcommand{\product}{Small-Cap Radar}
 \newcommand{\studentid}{b11902138}
 \newcommand{\githuburl}{\url{https://github.com/kopojen/new-token-intelligence}}
-\newcommand{\livedemo}{\url{https://new-token-intelligence.vercel.app}; local fallback runs at \url{http://127.0.0.1:8787/}}
+\newcommand{\livedemo}{\url{https://new-token-intelligence.vercel.app}}
 
 \title{\vspace{-2em}\textbf{\product}\\
 \large Designing a System That Monetizes Data}
@@ -123,7 +123,7 @@ For a course-scale prototype, local JSON fixtures and direct HTTP ingestion are 
   \item small-cap universe filtering by excluding major base assets and applying a configurable 24h quote-volume band;
   \item market feature extraction for price, returns, volume expansion, spread, depth, and trade-count proxies;
   \item dashboard row construction for movers, market snapshots, market notes, and event notes;
-  \item delivery through a live Vercel dashboard, local fallback dashboard, CLI output, and CSV evidence exports.
+  \item delivery through a live Vercel dashboard, CLI output, and CSV evidence exports.
 \end{enumerate}
 
 The small-cap proxy excludes major base assets and applies a configurable 24h quote-volume band. This is not a perfect market-cap measurement, but it is transparent and reproducible without adding a separate paid market-cap data dependency.
@@ -139,12 +139,8 @@ The customer consumes the product through a web dashboard. The current dashboard
   \item Market Notes and Event Notes: liquidity, spread, volume, and event context.
 \end{itemize}
 
-The local demo can be started with:
-\begin{verbatim}
-PYTHONPATH=src python3 scripts/build_demo_state.py
-PYTHONPATH=src python3 -m new_coins_scanner.cli dashboard
-\end{verbatim}
-Then open \url{http://127.0.0.1:8787/}.
+The deployed demo is available at \url{https://new-token-intelligence.vercel.app}.
+For reproducible fallback testing, the same dashboard can also be run locally from the repository.
 
 \subsection{Architecture Diagram}
 
