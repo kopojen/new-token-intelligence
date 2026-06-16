@@ -43,7 +43,7 @@ class RollingTicker:
 
 
 class BinanceSpotPublicClient:
-    def __init__(self, api_base: str = API_BASE, timeout: float = 15.0) -> None:
+    def __init__(self, api_base: str = API_BASE, timeout: float = 6.0) -> None:
         self.api_base = api_base.rstrip("/")
         self.timeout = timeout
 

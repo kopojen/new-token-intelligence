@@ -13,6 +13,7 @@ if str(SRC) not in os.sys.path:
 
 from new_coins_scanner.live_web import (  # noqa: E402
     SESSION_COOKIE_NAME,
+    password_required,
     render_live_dashboard_page,
     render_login_page,
     sign_session,
@@ -65,6 +66,9 @@ class handler(BaseHTTPRequestHandler):
         if path == "/health":
             self._send_html("ok")
             return
+        if not password_required():
+            self._send_html(render_live_dashboard_page())
+            return
         if not self._is_authenticated():
             self._send_html(render_login_page())
             return
@@ -75,6 +79,9 @@ class handler(BaseHTTPRequestHandler):
 
     def do_POST(self) -> None:
         path = urlparse(self.path).path
+        if not password_required():
+            self._send_html(render_live_dashboard_page())
+            return
         if path == "/login":
             form = _read_form(self)
             if not verify_password(form.get("password", "")):

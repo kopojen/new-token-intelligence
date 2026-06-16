@@ -13,7 +13,7 @@ from typing import Any
 
 from .config import ScannerConfig, load_config
 from .dashboard import render_dashboard_html
-from .engine import run_announcement_scan, run_live_scan
+from .engine import run_announcement_scan, run_fast_live_scan, run_live_scan, run_sample_scan
 from .env import load_dotenv
 from .state_views import build_signal_rows, build_top_gainer_rows, selection_counts
 
@@ -36,7 +36,12 @@ def _config_path() -> Path:
 
 def _load_config() -> ScannerConfig:
     path = _config_path()
-    return load_config(path if path.exists() else None)
+    config = load_config(path if path.exists() else None)
+    if os.environ.get("VERCEL"):
+        config.runtime.live_top_n_by_quote_volume = 6
+        config.runtime.live_top_n_by_24h_gainers = 4
+        config.runtime.depth_limit = 20
+    return config
 
 
 def _live_api_base() -> str | None:
@@ -46,7 +51,7 @@ def _live_api_base() -> str | None:
         or os.environ.get("BINANCE_API_BASE")
         or ""
     ).strip()
-    return value or None
+    return value or "https://data-api.binance.vision"
 
 
 def _announcement_rows() -> list[dict[str, Any]]:
@@ -58,7 +63,13 @@ def _announcement_rows() -> list[dict[str, Any]]:
 
 def build_live_dashboard_state(*, flash: str | None = None, flash_tone: str = "neutral") -> dict[str, Any]:
     config = _load_config()
-    candidates = run_live_scan(config, api_base=_live_api_base())
+    try:
+        scanner = run_fast_live_scan if os.environ.get("VERCEL") else run_live_scan
+        candidates = scanner(config, api_base=_live_api_base())
+    except Exception as exc:
+        candidates = run_sample_scan(config, _project_root() / "data" / "sample_market_snapshot.json")
+        flash = flash or f"Live scan fallback: {exc}"
+        flash_tone = "neutral"
     universe_counts = selection_counts(candidates)
     updated_at = _now_iso()
     state = {
@@ -107,6 +118,10 @@ def _cookie_secret() -> str:
 def _dashboard_password() -> str:
     load_dotenv()
     return os.environ.get("DASHBOARD_PASSWORD", "").strip()
+
+
+def password_required() -> bool:
+    return bool(_dashboard_password())
 
 
 def sign_session() -> str:
